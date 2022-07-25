@@ -8,8 +8,8 @@ function WeatherDetails() {
       <img src={sunny} alt="sun" />
     </div>
     <div className = "weather-info">
-        <div className>
-
+        <div className = "temperature">
+        <span>25°</span>
         </div>
     </div>
     </>
