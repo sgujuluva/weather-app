@@ -11,6 +11,10 @@ function WeatherDetails() {
         <div className = "temperature">
         <span>25°</span>
         </div>
+        <div className="weather-description">
+            <div className = "weather-condition">Sunny</div>
+            <div className="city">Mumbai,IN</div>
+        </div>
     </div>
     </>
     
