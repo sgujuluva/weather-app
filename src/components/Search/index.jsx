@@ -4,7 +4,8 @@ import WeatherDetails from "../WeatherDetails";
 function Search() {
   // use state for storing the inputs from the user
   const [captureInput, setCaptureInput] = useState("");
-  console.log(captureInput);
+ 
+ 
   //function onChange
   const handleChange = (e) => {
     e.preventDefault();
@@ -14,7 +15,14 @@ function Search() {
   const handleSearch = () => {
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${captureInput}&appid=c061564bbb2741cb21b7b2866d9ac0d9`)
     .then(response => response.json())
-    .then(data => console.log(data))
+    .then(data => {
+      const {temp,humidity,pressure} = data.main;
+      const {main:weatherType} = data.weather[0];
+      const {name} = data;
+      const {speed} = data.wind;
+      const {country,sunrise} = data.sys;
+      
+    })
   };
   // using useeffect calling the API
   useEffect(() => {
