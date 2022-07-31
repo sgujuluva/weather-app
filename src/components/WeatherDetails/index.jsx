@@ -3,6 +3,8 @@ import React from "react";
 import sunny from "../../images/sunny.png";
 import sunRise from "../../images/sunrise.png";
 import humidity from "../../images/humidity.png";
+import pressure from "../../images/rain-pressure.png";
+import wind from "../../images/wind.png";
 function WeatherDetails() {
   return (
     <>
@@ -21,12 +23,20 @@ function WeatherDetails() {
       </div>
       <div className="temp-details">
         <div className="set-rise-info">
-         <img src={sunRise} alt="sun" />
+         <img src={sunRise} alt="sun icon" />
          <p>6:20 AM <br /> Sunrise</p>
         </div>
         <div className="humidity">
-         <img src={humidity} alt="sun" />
+         <img src={humidity} alt="humid icon" />
          <p>20 <br /> Humid</p>
+        </div>
+        <div className="rain">
+         <img src={pressure} alt="rain icon" />
+         <p>20 <br /> Pressure</p>
+        </div>
+        <div className="wind-speed">
+         <img src={wind} alt="wind icon" />
+         <p>60<br /> Speed</p>
         </div>
       </div>
 

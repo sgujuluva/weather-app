@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import WeatherDetails from "../WeatherDetails";
 
 function Search() {
@@ -10,6 +10,14 @@ function Search() {
     e.preventDefault();
     setCaptureInput(e.target.value);
   };
+  //function onSearch
+  const handleSearch = () => {
+    let url = `https://api.openweathermap.org/data/2.5/weather?q=${captureInput}&appid=c061564bbb2741cb21b7b2866d9ac0d9`;
+  };
+  //fetching API using useeffect
+  useEffect(() => {
+    handleSearch();
+  }, []);
 
   return (
     <>
@@ -20,9 +28,9 @@ function Search() {
           type="search"
           placeholder="search city"
         />
-        <button>Search</button>
+        <button onClick={handleSearch}>Search</button>
       </div>
-      <WeatherDetails/>
+      <WeatherDetails />
     </>
   );
 }
