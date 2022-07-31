@@ -15,6 +15,9 @@ function WeatherDetails() {
             <div className = "weather-condition">Sunny</div>
             <div className="city">Mumbai,IN</div>
         </div>
+        <div className="date-time">
+          {new Date().toLocaleString()}
+        </div>
     </div>
     </>
     
