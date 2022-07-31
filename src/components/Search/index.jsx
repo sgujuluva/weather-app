@@ -10,11 +10,13 @@ function Search() {
     e.preventDefault();
     setCaptureInput(e.target.value);
   };
-  //function onSearch
+  //function onSearch fetching API
   const handleSearch = () => {
-    let url = `https://api.openweathermap.org/data/2.5/weather?q=${captureInput}&appid=c061564bbb2741cb21b7b2866d9ac0d9`;
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${captureInput}&appid=c061564bbb2741cb21b7b2866d9ac0d9`)
+    .then(response => response.json())
+    .then(data => console.log(data))
   };
-  //fetching API using useeffect
+  // using useeffect calling the API
   useEffect(() => {
     handleSearch();
   }, []);
