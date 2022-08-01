@@ -3,7 +3,7 @@ import WeatherDetails from "../WeatherDetails";
 
 function Search() {
   // use state for storing the inputs from the user
-  const [captureInput, setCaptureInput] = useState("");
+  const [captureInput, setCaptureInput] = useState("chennai");
   //creating obj to grab the values from API
  const [tempInfo, setTempInfo] = useState({});
  
@@ -17,23 +17,30 @@ function Search() {
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${captureInput}&appid=c061564bbb2741cb21b7b2866d9ac0d9`)
     .then(response => response.json())
     .then(data =>  {
-      const {temp,humidity,pressure} = data.main;
+      const {humidity,pressure,temp} = data.main;
       const {main:weatherType} = data.weather[0];
       const {name} = data;
       const {speed} = data.wind;
       const {country,sunrise} = data.sys;
-      setTempInfo(temp,humidity,pressure,weatherType,name,speed,country,sunrise)
+      let newWeatherDetails = {
+        "temp" : temp,
+        "humidity":humidity,
+        "pressure" : pressure,
+        "weatherType":weatherType,
+        "name":name,
+        "speed":speed,
+        "country" :country,
+        "sunrise":sunrise,
+      }
+      setTempInfo(newWeatherDetails)
+      console.log(tempInfo)
     } 
-    /* {const temp = data.main.temp
-      console.log(temp)
-      setTempInfo(temp)
-    } )
-    console.log("the tempinfo is:",tempInfo) */
+    
   )};
   // using useeffect calling the API
   useEffect(() => {
     handleSearch();
-  },[]);
+  },[]); 
 
   return (
     <>
@@ -46,7 +53,8 @@ function Search() {
         />
         <button onClick={handleSearch}>Search</button>
       </div>
-      <WeatherDetails tempInfo = {tempInfo}/>
+
+    { tempInfo ? <WeatherDetails tempInfo = {tempInfo}/> : ""}
    
     </>
   );
