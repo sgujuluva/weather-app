@@ -9,6 +9,10 @@ import windIcon from "../../images/wind.png";
 function WeatherDetails({ tempInfo }) {
   //
   const [weatherState, setWeatherState] = useState("");
+  //converting the sec in min
+  let sec = tempInfo.sunrise;
+  let date = new Date(sec * 1000);
+  let timeStr = `${date.getHours()}:${date.getMinutes()}`
   return (
     <>
       <div className="weather-icon">
@@ -31,7 +35,7 @@ function WeatherDetails({ tempInfo }) {
         <div className="set-rise-info">
           <img src={sunRise} alt="sun icon" />
           <p>
-            {tempInfo.sunrise} <br /> Sunrise
+            {timeStr} AM <br /> Sunrise
           </p>
         </div>
         <div className="humidity">
