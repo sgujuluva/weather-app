@@ -21,7 +21,7 @@ function WeatherDetails({ tempInfo }) {
         <div className="weather-description">
           <div className="weather-condition">{tempInfo.weatherType}</div>
           <div className="city">
-            {tempInfo.name}
+            {tempInfo.name},
             {tempInfo.country}
           </div>
         </div>

@@ -3,7 +3,7 @@ import WeatherDetails from "../WeatherDetails";
 
 function Search() {
   // use state for storing the inputs from the user
-  const [captureInput, setCaptureInput] = useState("chennai");
+  const [captureInput, setCaptureInput] = useState("");
   //creating obj to grab the values from API
  const [tempInfo, setTempInfo] = useState({});
  
@@ -14,7 +14,7 @@ function Search() {
   };
   //function onSearch fetching API
   const handleSearch = () => {
-    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${captureInput}&appid=c061564bbb2741cb21b7b2866d9ac0d9`)
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${captureInput}&units=metric&appid=c061564bbb2741cb21b7b2866d9ac0d9`)
     .then(response => response.json())
     .then(data =>  {
       const {humidity,pressure,temp} = data.main;
