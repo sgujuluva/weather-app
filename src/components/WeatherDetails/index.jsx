@@ -43,62 +43,72 @@ function WeatherDetails({ tempInfo }) {
   let timeStr = `${date.getHours()}:${date.getMinutes()}`;
   return (
     <>
-    <div className = "weather-card">
-      <div className="weather-icon">
-   
-        <img src={weatherState} alt="weather icon" />
-      </div>
-      <div className="weather-info">
-        <div className="temperature">
-          <span><b>{tempInfo.temp} °</b></span>
+      <div className="weather-card">
+        <div className="weather-icon">
+          <img src={weatherState} alt="weather icon" />
         </div>
-        <div className="weather-description">
-          <div className="weather-condition">{tempInfo.weatherType}</div>
-          <div className="city">
-          <b>{tempInfo.name} </b> ,<b>{tempInfo.country}</b>  
+        <div className="weather-info">
+          <div className="temperature">
+            <span>
+              <b>{tempInfo.temp} °</b>
+            </span>
           </div>
+          <div className="weather-description">
+            <div className="weather-condition">{tempInfo.weatherType}</div>
+            <div className="city">
+              <b>{tempInfo.name} </b> ,<b>{tempInfo.country}</b>
+            </div>
+          </div>
+  {/*   {console.log(tempInfo.timezone )}
+    {console.log(new Date(tempInfo.dt * 1000 + tempInfo.timezone * 1000))} */}
+           {tempInfo ? (
+            <div className="date-time">
+              {new Date(tempInfo.dt * 1000 + tempInfo.timezone * 1000)}{" "}
+            </div>
+          ) : (
+            ""
+          )} 
         </div>
-        <div className="date-time">{new Date().toLocaleString()}</div>
-      </div>
-      <br/>
-      <hr/>
-      <div className="temp-details">
-        <div className="set-rise-info">
-          <img src={sunRise} alt="sun icon" />
-          <p>
-            {timeStr} AM <br /> <b>Sunrise</b> 
-          </p>
+        <br />
+        <hr />
+        <div className="temp-details">
+          <div className="set-rise-info">
+            <img src={sunRise} alt="sun icon" />
+            <p>
+              {timeStr} AM <br /> <b>Sunrise</b>
+            </p>
+          </div>
+
+          <br />
+
+          <div className="humidity">
+            <img src={humidityIcon} alt="humid icon" />
+            <p>
+              {tempInfo.humidity}
+              <br /> <b>Humid</b>
+            </p>
+          </div>
+
+          <br />
+          <div className="rain">
+            <img src={pressureIcon} alt="rain icon" />
+            <p>
+              {tempInfo.pressure} <br /> <b>Pressure</b>
+            </p>
+          </div>
+
+          <br />
+          <div className="wind-speed">
+            <img src={windIcon} alt="wind icon" />
+            <p>
+              {tempInfo.speed}
+              <br />
+              <b>Speed</b>
+            </p>
+          </div>
+
+          <br />
         </div>
-       
-        <br/>
-        
-        <div className="humidity">
-          <img src={humidityIcon} alt="humid icon" />
-          <p>
-            {tempInfo.humidity}
-            <br /> <b>Humid</b> 
-          </p>
-        </div>
-       
-        <br/>
-        <div className="rain">
-          <img src={pressureIcon} alt="rain icon" />
-          <p>
-            {tempInfo.pressure} <br /> <b>Pressure</b> 
-          </p>
-        </div>
-        
-        <br/>
-        <div className="wind-speed">
-          <img src={windIcon} alt="wind icon" />
-          <p>
-            {tempInfo.speed}
-            <br /><b>Speed</b> 
-          </p>
-        </div>
-        
-        <br/>
-      </div>
       </div>
     </>
   );

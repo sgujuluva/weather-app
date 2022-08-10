@@ -3,7 +3,7 @@ import WeatherDetails from "../WeatherDetails";
 
 function Search() {
   // use state for storing the inputs from the user
-  const [captureInput, setCaptureInput] = useState("");
+  const [captureInput, setCaptureInput] = useState("berlin");
   //creating obj to grab the values from API
  const [tempInfo, setTempInfo] = useState({});
  
@@ -13,8 +13,8 @@ function Search() {
     setCaptureInput(e.target.value);
   };
   //function onSearch fetching API
-  const handleSearch = () => {
-    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${captureInput}&units=metric&appid=c061564bbb2741cb21b7b2866d9ac0d9`)
+  const handleSearch = async () => {
+    await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${captureInput}&units=metric&appid=c061564bbb2741cb21b7b2866d9ac0d9`)
     .then(response => response.json())
     .then(data =>  {
       const {humidity,pressure,temp} = data.main;
@@ -22,6 +22,9 @@ function Search() {
       const {name} = data;
       const {speed} = data.wind;
       const {country,sunrise} = data.sys;
+      const timezone = data.timezone;
+      const dt = data.dt;
+
       let newWeatherDetails = {
         "temp" : temp,
         "humidity":humidity,
@@ -31,6 +34,8 @@ function Search() {
         "speed":speed,
         "country" :country,
         "sunrise":sunrise,
+        "timezone":timezone,
+        "dt" : dt,
       }
       setTempInfo(newWeatherDetails)
       console.log(tempInfo)
