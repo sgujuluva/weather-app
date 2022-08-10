@@ -33,17 +33,19 @@ function WeatherDetails({ tempInfo }) {
           break;
         default:
           setWeatherState(sunny);
+          break;
       }
     }
-  }, [weatherState]);
+  }, [tempInfo.weatherType]);
   //converting the sec in min
   let sec = tempInfo.sunrise;
   let date = new Date(sec * 1000);
   let timeStr = `${date.getHours()}:${date.getMinutes()}`;
   return (
     <>
+    <div className = "weather-card">
       <div className="weather-icon">
-        <img src={sunny} alt="sun" />
+        <img src={weatherState} alt="weather icon" />
       </div>
       <div className="weather-info">
         <div className="temperature">
@@ -84,6 +86,7 @@ function WeatherDetails({ tempInfo }) {
             <br /> Speed
           </p>
         </div>
+      </div>
       </div>
     </>
   );

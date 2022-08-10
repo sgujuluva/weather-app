@@ -2,6 +2,7 @@
 import Search from "./components/Search"
 //styles
 import './App.css';
+import "./style.css"
 import WeatherDetails from "./components/WeatherDetails";
 
 function App() {
