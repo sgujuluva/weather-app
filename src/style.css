@@ -60,3 +60,40 @@ img {
 .temp-details .set-rise-info ,.humidity,.rain,.wind-speed p {
   line-height: 1.7rem;
 }
+
+/* Search app */
+.search{
+   
+   display:flex;
+justify-content: space-evenly;
+align-items: center;
+margin-bottom: 1.2rem;
+width:25vw;
+
+}
+input{
+height :2rem;
+width :15vw;
+cursor:pointer;
+color:darkblue;
+border-radius: 25px;
+font-size: large;
+outline:none;
+border:none;
+margin:0 10px;
+text-align: center;
+}
+button{
+    height :2rem;
+    width:4rem;
+    cursor:pointer;
+    color:darkblue;
+    border-radius: 25px;
+    border:none;
+}
+
+/* //from APP.js */
+h1{
+    color : white;
+    font-size: 2rem;
+}
