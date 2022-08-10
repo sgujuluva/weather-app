@@ -50,12 +50,12 @@ function WeatherDetails({ tempInfo }) {
       </div>
       <div className="weather-info">
         <div className="temperature">
-          <span>{tempInfo.temp} °</span>
+          <span><b>{tempInfo.temp} °</b></span>
         </div>
         <div className="weather-description">
           <div className="weather-condition">{tempInfo.weatherType}</div>
           <div className="city">
-            {tempInfo.name} , {tempInfo.country}
+          <b>{tempInfo.name} </b> ,<b>{tempInfo.country}</b>  
           </div>
         </div>
         <div className="date-time">{new Date().toLocaleString()}</div>
@@ -66,7 +66,7 @@ function WeatherDetails({ tempInfo }) {
         <div className="set-rise-info">
           <img src={sunRise} alt="sun icon" />
           <p>
-            {timeStr} AM <br /> Sunrise
+            {timeStr} AM <br /> <b>Sunrise</b> 
           </p>
         </div>
        
@@ -76,7 +76,7 @@ function WeatherDetails({ tempInfo }) {
           <img src={humidityIcon} alt="humid icon" />
           <p>
             {tempInfo.humidity}
-            <br /> Humid
+            <br /> <b>Humid</b> 
           </p>
         </div>
        
@@ -84,7 +84,7 @@ function WeatherDetails({ tempInfo }) {
         <div className="rain">
           <img src={pressureIcon} alt="rain icon" />
           <p>
-            {tempInfo.pressure} <br /> Pressure
+            {tempInfo.pressure} <br /> <b>Pressure</b> 
           </p>
         </div>
         
@@ -93,7 +93,7 @@ function WeatherDetails({ tempInfo }) {
           <img src={windIcon} alt="wind icon" />
           <p>
             {tempInfo.speed}
-            <br /> Speed
+            <br /><b>Speed</b> 
           </p>
         </div>
         
