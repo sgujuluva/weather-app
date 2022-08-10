@@ -45,20 +45,22 @@ function WeatherDetails({ tempInfo }) {
     <>
     <div className = "weather-card">
       <div className="weather-icon">
+   
         <img src={weatherState} alt="weather icon" />
       </div>
       <div className="weather-info">
         <div className="temperature">
-          <span>{tempInfo.temp}°</span>
+          <span>{tempInfo.temp} °</span>
         </div>
         <div className="weather-description">
           <div className="weather-condition">{tempInfo.weatherType}</div>
           <div className="city">
-            {tempInfo.name},{tempInfo.country}
+            {tempInfo.name} , {tempInfo.country}
           </div>
         </div>
         <div className="date-time">{new Date().toLocaleString()}</div>
       </div>
+      <hr/>
       <div className="temp-details">
         <div className="set-rise-info">
           <img src={sunRise} alt="sun icon" />

@@ -15,10 +15,33 @@ body{
 /* //weather details card */
 .weather-card{
     border : 2px solid white;
+    font-size: larger;
+    color:white;
+    
     display:flex;
+    flex-direction: column;
     flex:wrap;
     cursor:pointer;
     border-radius:25px;
+    width:50vw;
     height:70vh;
     box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
+}
+.weather-card  .weather-icon{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom : 2rem;
+}
+.weather-card  .weather-icon img{
+width : 5rem;
+height:5rem;
+
+}
+/* weather temperature in ° */
+.weather-card .weather-info{
+   
+}
+.weather-card .weather-info .temperature,.weather-condition,.city,.date-time{
+    margin-bottom : 1.2rem;
 }
