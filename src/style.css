@@ -11,3 +11,14 @@ body{
     display:grid;
     place-items:center;
 }
+
+/* //weather details card */
+.weather-card{
+    border : 2px solid white;
+    display:flex;
+    flex:wrap;
+    cursor:pointer;
+    border-radius:25px;
+    height:70vh;
+    box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
+}
