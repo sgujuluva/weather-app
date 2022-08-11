@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 //images import
 import sunny from "../../images/sunny.png";
 import sunRise from "../../images/sunrise.png";
+import sunSet from "../../images/sunset.png";
 import humidityIcon from "../../images/humidity.png";
 import pressureIcon from "../../images/rain-pressure.png";
 import windIcon from "../../images/wind.png";
@@ -37,10 +38,14 @@ function WeatherDetails({ tempInfo }) {
       }
     }
   }, [tempInfo.weatherType]);
-  //converting the sec in min
+  //converting the sec in min for sunRise
   let sec = tempInfo.sunrise;
   let date = new Date(sec * 1000);
   let timeStr = `${date.getHours()}:${date.getMinutes()}`;
+   //converting the sec in min for sunSet
+   let secSet = tempInfo.sunset;
+  let dateSet = new Date(secSet * 1000);
+  let timeSet = `${dateSet.getHours()}:${dateSet.getMinutes()}`;
   return (
     <>
       <div className="weather-card">
@@ -61,13 +66,13 @@ function WeatherDetails({ tempInfo }) {
           </div>
   {/*   {console.log(tempInfo.timezone )}
     {console.log(new Date(tempInfo.dt * 1000 + tempInfo.timezone * 1000))} */}
-           {tempInfo ? (
+          {/*  {tempInfo ? (
             <div className="date-time">
               {new Date(tempInfo.dt * 1000 + tempInfo.timezone * 1000)}{" "}
             </div>
           ) : (
             ""
-          )} 
+          )}  */}
         </div>
         <br />
         <hr />
@@ -78,7 +83,13 @@ function WeatherDetails({ tempInfo }) {
               {timeStr} AM <br /> <b>Sunrise</b>
             </p>
           </div>
-
+          <br />
+          <div className="set-set-info">
+            <img src={sunSet} alt="sunset icon" />
+            <p>
+              {timeSet} PM <br /> <b>Sunset</b>
+            </p>
+          </div>
           <br />
 
           <div className="humidity">

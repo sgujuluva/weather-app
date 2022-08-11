@@ -21,7 +21,7 @@ function Search() {
       const {main:weatherType} = data.weather[0];
       const {name} = data;
       const {speed} = data.wind;
-      const {country,sunrise} = data.sys;
+      const {country,sunrise,sunset} = data.sys;
       const timezone = data.timezone;
       const dt = data.dt;
 
@@ -34,6 +34,7 @@ function Search() {
         "speed":speed,
         "country" :country,
         "sunrise":sunrise,
+        "sunset":sunset,
         "timezone":timezone,
         "dt" : dt,
       }
