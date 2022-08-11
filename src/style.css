@@ -47,17 +47,17 @@ img {
 .weather-condition,
 .city{
     
-  margin-bottom: 1rem;
+  margin-bottom: 0.6rem;
 }
 
 /* sunrise */
-.temp-details .set-rise-info ,.humidity,.rain,.wind-speed {
+.temp-details .set-rise-info,.set-set-info ,.humidity,.rain,.wind-speed {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin-top:1rem;
+  margin-top:0.8rem;
 }
-.temp-details .set-rise-info ,.humidity,.rain,.wind-speed p {
+.temp-details .set-rise-info , .set-set-info,.humidity,.rain,.wind-speed p {
   line-height: 1.7rem;
 }
 
