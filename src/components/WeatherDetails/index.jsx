@@ -11,6 +11,24 @@ import haze from "../../images/haze.png";
 import mist from "../../images/mist.png";
 import rainy from "../../images/rainy.png";
 
+const timeFunction = (tempInfo) => {
+  if (!Object.keys(tempInfo).length) {
+    return { timeStr: "", timeCalc: "", timeSet: "" };
+  }
+  let sec = tempInfo.sunrise;
+  let date = new Date(sec * 1000);
+  let timeStr = `${date.getHours()}:${date.getMinutes()}`;
+  //converting the sec in min for sunSet
+  let secSet = tempInfo.sunset;
+  let dateSet = new Date(secSet * 1000);
+  let timeSet = `${dateSet.getHours()}:${dateSet.getMinutes()}`;
+  //dt and timezone calculation
+  let timeCalc = new Date(
+    (tempInfo.dt + tempInfo.timezone) * 1000
+  ).toUTCString();
+  return { timeCalc, timeStr, timeSet };
+};
+
 function WeatherDetails({ tempInfo }) {
   //for changing icons
   const [weatherState, setWeatherState] = useState("");
@@ -39,13 +57,9 @@ function WeatherDetails({ tempInfo }) {
     }
   }, [tempInfo.weatherType]);
   //converting the sec in min for sunRise
-  let sec = tempInfo.sunrise;
-  let date = new Date(sec * 1000);
-  let timeStr = `${date.getHours()}:${date.getMinutes()}`;
-   //converting the sec in min for sunSet
-   let secSet = tempInfo.sunset;
-  let dateSet = new Date(secSet * 1000);
-  let timeSet = `${dateSet.getHours()}:${dateSet.getMinutes()}`;
+
+  const { timeCalc, timeStr, timeSet } = timeFunction(tempInfo);
+
   return (
     <>
       <div className="weather-card">
@@ -64,15 +78,9 @@ function WeatherDetails({ tempInfo }) {
               <b>{tempInfo.name} </b> ,<b>{tempInfo.country}</b>
             </div>
           </div>
-  {/*   {console.log(tempInfo.timezone )}
-    {console.log(new Date(tempInfo.dt * 1000 + tempInfo.timezone * 1000))} */}
-          {/*  {tempInfo ? (
-            <div className="date-time">
-              {new Date(tempInfo.dt * 1000 + tempInfo.timezone * 1000)}{" "}
-            </div>
-          ) : (
-            ""
-          )}  */}
+          {tempInfo ? (
+            <div className="date-time">{timeCalc.toString()}</div>
+          ) : null}
         </div>
         <br />
         <hr />
