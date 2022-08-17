@@ -135,3 +135,20 @@ h1 {
   }
 }
 */
+.search {
+  padding: 1%;
+}
+form {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+}
+form input {
+  padding: 1.5%;
+  width: 60%;
+}
+form button {
+  padding: 1.5%;
+  width: 30%;
+}
