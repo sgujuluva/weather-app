@@ -1,6 +1,9 @@
 .App{
     background: linear-gradient(#1c9cf6, #80aeff);
     color:white;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
 }
 .App h1{
     text-align: center;
