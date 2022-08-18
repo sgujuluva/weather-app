@@ -15,7 +15,7 @@ const timeFunction = (tempInfo) => {
   if (!Object.keys(tempInfo).length) {
     return { timeStr: "", timeCalc: "", timeSet: "" };
   }
-    //converting the sec in min for sunRise
+  //converting the sec in min for sunRise
   let sec = tempInfo.sunrise;
   let date = new Date(sec * 1000);
   let timeStr = `${date.getHours()}:${date.getMinutes()}`;
@@ -57,7 +57,6 @@ function WeatherDetails({ tempInfo }) {
       }
     }
   }, [tempInfo.weatherType]);
-
 
   const { timeCalc, timeStr, timeSet } = timeFunction(tempInfo);
 
