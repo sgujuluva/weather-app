@@ -10,6 +10,8 @@ import cloudyImg from "../../images/cloudy.png";
 import haze from "../../images/haze.png";
 import mist from "../../images/mist.png";
 import rainy from "../../images/rainy.png";
+import ClearSky from "../../images/clearsky.png";
+import CloudyBg from "../../images/cloudy.png";
 
 const timeFunction = (tempInfo) => {
   if (!Object.keys(tempInfo).length) {
@@ -34,17 +36,21 @@ const timeFunction = (tempInfo) => {
 function WeatherDetails({ tempInfo }) {
   //for changing icons
   const [weatherState, setWeatherState] = useState("");
+  //for background image
+  const [background,setBackground] = useState("")
   useEffect(() => {
     if (tempInfo.weatherType) {
       switch (tempInfo.weatherType) {
         case "Clouds":
           setWeatherState(cloudyImg);
+          setBackground(CloudyBg)
           break;
         case "Haze":
           setWeatherState(haze);
           break;
         case "Clear":
           setWeatherState(sunny);
+          setBackground(ClearSky)
           break;
         case "Mist":
           setWeatherState(mist);
