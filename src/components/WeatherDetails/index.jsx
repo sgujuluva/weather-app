@@ -15,6 +15,7 @@ const timeFunction = (tempInfo) => {
   if (!Object.keys(tempInfo).length) {
     return { timeStr: "", timeCalc: "", timeSet: "" };
   }
+  //checking
   //converting the sec in min for sunRise
   let sec = tempInfo.sunrise;
   let date = new Date(sec * 1000);
