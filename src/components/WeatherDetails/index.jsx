@@ -10,8 +10,13 @@ import cloudyImg from "../../images/cloudy.png";
 import haze from "../../images/haze.png";
 import mist from "../../images/mist.png";
 import rainy from "../../images/rainy.png";
-import ClearSky from "../../images/clearsky.png";
-import CloudyBg from "../../images/cloudy.png";
+
+//bg
+import CloudyBg from "../../images/cloudybg.png";
+import RainyBg from "../../images/rainybg.png";
+import HazeBg from "../../images/hazebg.png";
+import MistBg from "../../images/mistbg.png";
+import SunnyBg from "../../images/sunnybg.png";
 
 const timeFunction = (tempInfo) => {
   if (!Object.keys(tempInfo).length) {
@@ -33,33 +38,36 @@ const timeFunction = (tempInfo) => {
   return { timeCalc, timeStr, timeSet };
 };
 
-function WeatherDetails({ tempInfo }) {
+function WeatherDetails({ tempInfo, setBackground }) {
   //for changing icons
   const [weatherState, setWeatherState] = useState("");
-  //for background image
-  const [background,setBackground] = useState("")
+
   useEffect(() => {
     if (tempInfo.weatherType) {
       switch (tempInfo.weatherType) {
         case "Clouds":
           setWeatherState(cloudyImg);
-          setBackground(CloudyBg)
+          setBackground(CloudyBg);
           break;
         case "Haze":
           setWeatherState(haze);
+          setBackground(HazeBg);
           break;
         case "Clear":
           setWeatherState(sunny);
-          setBackground(ClearSky)
+          setBackground(SunnyBg);
           break;
         case "Mist":
           setWeatherState(mist);
+          setBackground(MistBg);
           break;
         case "Rain":
           setWeatherState(rainy);
+          setBackground(RainyBg);
           break;
         default:
           setWeatherState(sunny);
+          setBackground(SunnyBg);
           break;
       }
     }
@@ -69,10 +77,11 @@ function WeatherDetails({ tempInfo }) {
 
   return (
     <>
-      <div className="weather-card">
+      <div className="weather-card" >
         <div className="weather-icon">
           <img src={weatherState} alt="weather icon" />
         </div>
+
         <div className="weather-info">
           <div className="temperature">
             <span>

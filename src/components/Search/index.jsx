@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import WeatherDetails from "../WeatherDetails";
+import "../../index.css";
 //function fetch
 const apiFetch = async (captureInput) => {
   let response = await fetch(
@@ -36,6 +37,8 @@ function Search() {
   const [captureInput, setCaptureInput] = useState("berlin");
   //creating obj to grab the values from API
   const [tempInfo, setTempInfo] = useState({});
+  //for background image
+  const [background, setBackground] = useState("");
 
   //function onChange
   const handleChange = (e) => {
@@ -61,19 +64,37 @@ function Search() {
 
   return (
     <>
-      <div className="search">
-        <form onSubmit={handleSearch}>
-          <input
-            onChange={handleChange}
-            value={captureInput}
-            type="search"
-            placeholder="search city"
-          />
-          <button>Search</button>
-        </form>
-      </div>
+      <div className="application">
+   
+          <div
+            className={
+              tempInfo.weatherType === "Clouds" ? "cloudybg" : "standerd" || 
+                tempInfo.weatherType === "Haze" ? "hazebg" : "standerd" || 
+                tempInfo.weatherType === "Clear"? "sunnybg": "standerd" || 
+                tempInfo.weatherType === "Mist"? "mistbg": "standerd" || 
+                tempInfo.weatherType === "Rain" ? "rainbg": "standerd"
+            }
+          ></div>
 
-      <WeatherDetails tempInfo={tempInfo} />
+          <div className="search">
+            <form onSubmit={handleSearch}>
+              <input
+                onChange={handleChange}
+                value={captureInput}
+                type="search"
+                placeholder="search city"
+              />
+              <button>Search</button>
+            </form>
+          </div>
+
+          <WeatherDetails
+            tempInfo={tempInfo}
+            background={background}
+            setBackground={setBackground}
+          />
+        </div>
+     
     </>
   );
 }
